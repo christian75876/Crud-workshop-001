@@ -1,0 +1,25 @@
+#login-cont{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: 25px;
+    gap: 15px;
+}
+
+#login-form{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 180px;
+    border: 1px solid;
+    background-color: rgba(0, 0, 0, 0.339);
+    border-radius: 10px;
+}
+
+.input-login:hover{
+    cursor: pointer;
+}
