@@ -1,5 +1,4 @@
 import { RegularPerson } from "../../class/Persona.js";
-import { dashboard } from "../private/dashboard.js";
 
 export const register = (array) => {
     const root = document.getElementById('root');
