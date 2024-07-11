@@ -1,4 +1,5 @@
 import { RegularPerson } from "../../class/Persona.js";
+import { dashboard } from "../private/dashboard.js";
 
 export const register = (array) => {
     const root = document.getElementById('root');
@@ -21,9 +22,15 @@ export const register = (array) => {
         const name = document.getElementById('name').value;
         const password = document.getElementById('password').value;
 
+        if((name || password) === ''){
+            alert('alguno de los campos esta vacio!')
+            return
+        }
+
         const person = new RegularPerson(name, password);
         array.push(person);
         localStorage.setItem('token', '123');
+        window.location.reload();
     });
 
 }
