@@ -70,12 +70,17 @@ export const dashboard = (arrayBookings) => {
                 if (newBooking !== null) {
                     const index = $update[i].getAttribute('data-index');
                     arrayBookings[index].name = newBooking; 
+                    console.log(arrayBookings);
+                    updateLocalStorage(arrayBookings);
                     renderDashboard();
                 }
             });
         }
     }
 
+    const updateLocalStorage = (arrayBookings) => {
+        localStorage.setItem('bookings', JSON.stringify(arrayBookings));
+    }
 
     renderDashboard(); 
 }
