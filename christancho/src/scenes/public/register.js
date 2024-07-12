@@ -28,6 +28,7 @@ export const register = (array) => {
 
         const person = new RegularPerson(name, password);
         array.push(person);
+        localStorage.setItem('users', JSON.stringify(array)); 
         localStorage.setItem('token', '123');
         window.location.reload();
     });

@@ -1,8 +1,9 @@
 
 export class Person {
-    constructor(name, password) {
+    constructor(name, password,roll=0) {
         this.name = name;
         this.password = password;
+        this.roll = roll
     };
 
     addReservation(){
