@@ -1,8 +1,9 @@
 
 export class Reservation {
-    constructor(user, reservation, user){
+    constructor(name, state= false, user){
         this.user = user;
-        this.reservation = reservation;
-        this.user = user
+        this.name = name;
+        this.state = state
+        
     }
 };

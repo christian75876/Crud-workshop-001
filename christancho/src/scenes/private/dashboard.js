@@ -1,3 +1,8 @@
+
+// import { Reservation } from "../../class/Reservations";
+
+import { Reservation } from "../../class/Reservations.js";
+
 export const dashboard = (arrayBookings) => {
     const root = document.getElementById('root');
 
@@ -5,7 +10,7 @@ export const dashboard = (arrayBookings) => {
         let elements = '';
         
         const login = JSON.parse(localStorage.getItem('login'));
-        
+        if(arrayBookings.length === 0)return
         let reservas = arrayBookings.filter(reserva => reserva.user === login.name)
 
         if(login.roll === '1'){
@@ -57,9 +62,22 @@ export const dashboard = (arrayBookings) => {
             });
         }
 
+        const $add = document.getElementById('add');
+        $add.addEventListener('click', () => {
+            const user = JSON.parse(localStorage.getItem('login'));
+            const booking = prompt('Ingrese la descripcion de la reserva: ')
+            const book = new Reservation(booking, false, user.name);
+            
+            const bookingsSetLocalStorage = JSON.parse(localStorage.getItem('bookings'));
+            bookingsSetLocalStorage.push(book);
+            localStorage.setItem('bookings', JSON.stringify(bookingsSetLocalStorage));
+            window.location.reload();
+        });
+
         const $logout = document.getElementById('logout');
         $logout.addEventListener('click', () => {
             localStorage.removeItem('token');
+            localStorage.removeItem('login');
             window.location.reload();
         });
 
@@ -77,6 +95,8 @@ export const dashboard = (arrayBookings) => {
             });
         }
     }
+
+    
 
     const updateLocalStorage = (arrayBookings) => {
         localStorage.setItem('bookings', JSON.stringify(arrayBookings));
